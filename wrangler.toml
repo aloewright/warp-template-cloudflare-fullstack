@@ -1,0 +1,11 @@
+name = "warp-template-cloudflare-fullstack"
+main = "worker/src/index.ts"
+compatibility_date = "2025-02-01"
+compatibility_flags = ["nodejs_compat"]
+
+assets = { directory = "dist" }
+
+[[d1_databases]]
+binding = "DB"
+database_name = "warp-template-cloudflare-fullstack"
+database_id = "00000000-0000-4000-8000-000000000001"

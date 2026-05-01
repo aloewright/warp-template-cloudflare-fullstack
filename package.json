@@ -1,0 +1,39 @@
+{
+  "name": "warp-template-cloudflare-fullstack",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:client\" \"npm:dev:worker\"",
+    "dev:client": "vite --host 127.0.0.1 --port 5173",
+    "dev:worker": "WRANGLER_LOG_PATH=.wrangler/logs/wrangler.log WRANGLER_REGISTRY_PATH=.wrangler/registry wrangler --cwd worker dev -c ../wrangler.toml --port 8787 --ip 127.0.0.1",
+    "build": "vite build && tsc -p worker/tsconfig.json --noEmit",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p worker/tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "@tanstack/react-query": "^5.90.0",
+    "@tanstack/react-router": "^1.120.0",
+    "better-auth": "^1.5.0",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.9.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.3.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.2026.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.0.0",
+    "drizzle-kit": "^0.31.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0",
+    "wrangler": "^4.0.0"
+  }
+}
