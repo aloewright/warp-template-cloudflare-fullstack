@@ -7,5 +7,5 @@ export const notes = sqliteTable("notes", {
   body: text("body").notNull(),
   createdAt: integer("created_at", { mode: "timestamp_ms" })
     .notNull()
-    .default(new Date()),
+    .$defaultFn(() => new Date()),
 });
